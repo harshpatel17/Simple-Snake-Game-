@@ -1,4 +1,5 @@
 #include <iostream>
+#include <curses.h>
 using namespace std;
 bool gameOver;
 const int width = 20;
@@ -18,8 +19,34 @@ void Setup () {
 }
 
 void Draw () {
+    //Clears console terminal
+    system("clear");
+    
+    //Printing top wall
+    for (int i = 0; i < width+2; i++)
+        cout << "#";
+    cout << endl;
+    
+    //Print the map
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (j == 0)
+                cout << "#";
+           
+                cout << " ";
+            if (j == width-1)
+                cout << "#";
+        }
+        cout << endl;
+    }
+    
+    //Printing bottom wall
+    for (int i = 0; i < width+2; i++)
+        cout << "#";
+    cout << endl;
     
 }
+
 
 void Input () {
     
